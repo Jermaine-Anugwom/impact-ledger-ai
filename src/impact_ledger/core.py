@@ -36,10 +36,17 @@ def summarize(events: list[Event]) -> dict[str, float | int]:
     }
 
 
-def compare(baseline: list[Event], current: list[Event]) -> dict[str, float]:
+def compare(baseline: list[Event], current: list[Event]) -> dict[str, float | bool | None]:
+    if not baseline or not current:
+        return {
+            "comparable": False,
+            "cycle_minutes_delta": None,
+            "acceptance_delta": None,
+        }
     b = summarize(baseline)
     c = summarize(current)
     return {
+        "comparable": True,
         "cycle_minutes_delta": float(c["median_cycle_minutes"]) - float(b["median_cycle_minutes"]),
         "acceptance_delta": float(c["acceptance"]) - float(b["acceptance"]),
     }

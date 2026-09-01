@@ -11,7 +11,7 @@ Model accuracy alone does not reveal adoption, overrides, failure cost, or workf
 
 ## The proof
 
-Outcome events, baseline comparisons, adoption and override metrics, experiment notes, and transparent assumptions.
+Synthetic workflow events summarized into adoption, acceptance, override, error, and median-cycle metrics. Comparisons fail closed when either baseline or current evidence is empty.
 
 ## Why this is forward deployed
 
@@ -39,7 +39,7 @@ flowchart LR
 ```bash
 python3.12 -m venv .venv
 source .venv/bin/activate
-python -m pip install -e '.[dev]'
+python -m pip install -c constraints.txt -e '.[dev]'
 pytest -q
 impact_ledger
 ```

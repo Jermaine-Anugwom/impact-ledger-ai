@@ -58,5 +58,15 @@ def test_acceptance_delta():
     assert compare([ev(accepted=False)], [ev(accepted=True)])["acceptance_delta"] == 1
 
 
+@pytest.mark.parametrize("baseline,current", [([], [ev()]), ([ev()], []), ([], [])])
+def test_comparison_requires_both_samples(baseline, current):
+    result = compare(baseline, current)
+    assert result == {
+        "comparable": False,
+        "cycle_minutes_delta": None,
+        "acceptance_delta": None,
+    }
+
+
 def test_deterministic():
     assert summarize([ev()]) == summarize([ev()])

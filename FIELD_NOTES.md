@@ -21,7 +21,7 @@ Model accuracy alone does not reveal adoption, overrides, failure cost, or workf
 
 ## Success measure
 
-Outcome events, baseline comparisons, adoption and override metrics, experiment notes, and transparent assumptions.
+Synthetic outcome events, adoption and override metrics, median cycle time, and comparisons that require non-empty baseline and current evidence.
 
 ## Handoff
 
